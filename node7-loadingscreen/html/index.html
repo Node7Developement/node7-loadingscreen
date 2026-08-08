@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark">
+    <title>Node7</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main id="loadingScreen" class="loading-screen">
+        <video id="backgroundVideo" class="background-video" autoplay muted loop playsinline preload="auto"></video>
+        <div class="backdrop-grade" aria-hidden="true"></div>
+        <div class="texture" aria-hidden="true"></div>
+
+        <header class="topbar">
+            <div class="studio-mark" aria-label="Node7 Development Studios">
+                <span class="monogram">N7</span>
+                <span class="studio-copy">NODE7 DEVELOPMENT STUDIOS</span>
+            </div>
+
+            <div class="top-actions">
+                <button id="websiteButton" class="glass-link" type="button" hidden>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm6.92 9h-3.01a15.6 15.6 0 0 0-1.35-5.01A8.03 8.03 0 0 1 18.92 11ZM12 4c.93 1.13 1.73 3.11 1.92 7h-3.84C10.27 7.11 11.07 5.13 12 4ZM9.44 5.99A15.6 15.6 0 0 0 8.09 11H5.08a8.03 8.03 0 0 1 4.36-5.01ZM5.08 13h3.01c.17 2.03.64 3.75 1.35 5.01A8.03 8.03 0 0 1 5.08 13ZM12 20c-.93-1.13-1.73-3.11-1.92-7h3.84c-.19 3.89-.99 5.87-1.92 7Zm2.56-1.99A15.6 15.6 0 0 0 15.91 13h3.01a8.03 8.03 0 0 1-4.36 5.01Z"/></svg>
+                    <span id="websiteLabel">WEBSITE</span>
+                </button>
+
+                <button id="storeButton" class="glass-link" type="button" hidden>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16l-1 5H5L4 4Zm1 7h14v9H5v-9Zm3 2v5h3v-5H8Zm5 0v2h4v-2h-4Z"/></svg>
+                    <span id="storeLabel">STORE</span>
+                </button>
+            </div>
+        </header>
+
+        <section class="hero" aria-label="Node7 brand">
+            <div id="kicker" class="kicker">A NODE7 PRODUCTION</div>
+            <div class="brand-logo-wrap">
+                <img class="brand-logo" src="media/brandlogo.png" alt="Node7 Development Studios">
+            </div>
+            <div class="hero-title-wrap legacy-brand-copy" aria-hidden="true">
+                <h1 id="brandTitle">NODE<span>7</span></h1>
+                <div class="western-flourish" aria-hidden="true"><i></i><b>◆</b><i></i></div>
+            </div>
+            <div id="brandSubtitle" class="brand-subtitle legacy-brand-copy" aria-hidden="true">REDM ROLEPLAY FRAMEWORK</div>
+            <div id="brandEdition" class="brand-edition">THE FRONTIER AWAITS</div>
+        </section>
+
+        <aside class="info-shell glass" aria-label="Server information">
+            <div class="glass-shine" aria-hidden="true"></div>
+            <div class="western-corner corner-tl" aria-hidden="true"></div>
+            <div class="western-corner corner-br" aria-hidden="true"></div>
+
+            <nav id="infoNav" class="info-nav" aria-label="Loading screen information"></nav>
+
+            <section class="info-content">
+                <div class="info-content-head">
+                    <div>
+                        <span id="panelLabel" class="section-label">COMMUNITY</span>
+                        <span id="panelEyebrow" class="panel-eyebrow">WELCOME TO NODE7</span>
+                    </div>
+                    <span id="panelIndex" class="panel-index">01</span>
+                </div>
+
+                <div id="infoViewport" class="info-viewport" aria-live="polite"></div>
+            </section>
+
+            <div class="info-footer">
+                <span class="tiny-line"></span>
+                <span>CLICK AN OPTION TO EXPLORE</span>
+            </div>
+        </aside>
+
+        <section class="bottom-shell">
+            <div class="loading-panel glass">
+                <div class="loading-copy">
+                    <div>
+                        <span class="section-label">LOADING</span>
+                        <strong id="statusText">CONNECTING TO REDM</strong>
+                    </div>
+                    <span id="percentText" class="percent">0%</span>
+                </div>
+
+                <div class="progress-track" aria-hidden="true">
+                    <div id="progressFill" class="progress-fill"></div>
+                </div>
+
+                <div class="loading-details">
+                    <span id="playerName"></span>
+                    <span id="phaseText">INITIALIZING</span>
+                </div>
+            </div>
+
+            <div id="audioPanel" class="audio-panel glass" hidden>
+                <button id="audioToggle" class="icon-button" type="button" aria-label="Play or pause music">
+                    <svg id="playIcon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7L8 5Z"/></svg>
+                    <svg id="pauseIcon" viewBox="0 0 24 24" aria-hidden="true" hidden><path d="M7 5h4v14H7V5Zm6 0h4v14h-4V5Z"/></svg>
+                </button>
+
+                <div class="track-copy">
+                    <span class="section-label">NOW PLAYING</span>
+                    <strong id="trackTitle">NODE7</strong>
+                    <span id="trackArtist"></span>
+                </div>
+
+                <button id="muteToggle" class="icon-button secondary" type="button" aria-label="Mute or unmute music">
+                    <svg id="volumeIcon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4Zm12.5 3a4.5 4.5 0 0 0-2.1-3.8v7.6a4.5 4.5 0 0 0 2.1-3.8Zm-2.1-8.3v2.1a7 7 0 0 1 0 12.4v2.1a9 9 0 0 0 0-16.6Z"/></svg>
+                    <svg id="mutedIcon" viewBox="0 0 24 24" aria-hidden="true" hidden><path d="M4 9v6h4l5 4V5L8 9H4Zm12.2.2L18 11l1.8-1.8 1.2 1.2-1.8 1.8L21 14l-1.2 1.2L18 13.4l-1.8 1.8L15 14l1.8-1.8L15 10.4l1.2-1.2Z"/></svg>
+                </button>
+
+                <input id="volumeSlider" class="volume-slider" type="range" min="0" max="100" value="22" aria-label="Music volume">
+            </div>
+        </section>
+
+        <audio id="musicPlayer" preload="auto" autoplay></audio>
+    </main>
+
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

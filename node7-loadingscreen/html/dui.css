@@ -1,0 +1,119 @@
+:root {
+    --gold: #d0aa63;
+    --gold-soft: rgba(208, 170, 99, .38);
+    --paper: #f0e4cd;
+    --muted: rgba(240, 228, 205, .58);
+    --glass: rgba(13, 10, 7, .73);
+    --edge: rgba(228, 194, 126, .24);
+}
+
+* { box-sizing: border-box; }
+html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; background: transparent; }
+body { font-family: Inter, "Segoe UI", Arial, sans-serif; color: var(--paper); }
+
+.dui-root {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    opacity: 0;
+    transform: scale(1.012);
+    transition: opacity .34s ease, transform .55s cubic-bezier(.2,.8,.2,1);
+    pointer-events: none;
+}
+
+.dui-root.visible { opacity: 1; transform: scale(1); }
+.dui-root.hiding { opacity: 0; transform: scale(1.008); }
+
+.dui-vignette {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(3,2,1,.58) 0%, rgba(3,2,1,.22) 38%, rgba(3,2,1,.05) 58%, rgba(3,2,1,.30) 100%);
+}
+
+.dui-brand {
+    position: absolute;
+    left: 5.2vw;
+    top: 50%;
+    width: 37vw;
+    transform: translateY(-50%);
+    text-shadow: 0 10px 35px rgba(0,0,0,.7);
+}
+
+.dui-kicker, .dui-label, .dui-eyebrow, .dui-player, .dui-card footer {
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+.dui-kicker { display: block; margin-bottom: 12px; color: var(--gold); font-size: 10px; }
+.dui-brand h1 { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp(68px, 8vw, 152px); line-height: .82; letter-spacing: -.06em; }
+.dui-brand h1 span { color: var(--gold); }
+.dui-brand p { margin: 16px 0 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp(13px, 1.1vw, 20px); letter-spacing: .18em; }
+.dui-player { display: block; margin-top: 13px; color: var(--muted); font-size: 9px; }
+
+.dui-rule { display: flex; align-items: center; gap: 10px; width: 230px; margin-top: 20px; color: var(--gold); opacity: .62; }
+.dui-rule i { height: 1px; flex: 1; background: linear-gradient(90deg, transparent, var(--gold)); }
+.dui-rule i:last-child { background: linear-gradient(90deg, var(--gold), transparent); }
+.dui-rule b { font-size: 8px; }
+
+.dui-card {
+    position: absolute;
+    top: 50%;
+    right: 4vw;
+    width: min(570px, 43vw);
+    min-height: 450px;
+    padding: 28px 30px 22px;
+    transform: translateY(-50%);
+    overflow: hidden;
+    border: 1px solid var(--edge);
+    border-radius: 22px;
+    background: linear-gradient(145deg, rgba(31,24,16,.76), var(--glass));
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 28px 80px rgba(0,0,0,.38);
+    backdrop-filter: none;
+}
+
+.dui-card::before {
+    content: "";
+    position: absolute;
+    inset: 8px;
+    border: 1px solid rgba(208,170,99,.10);
+    border-radius: 16px;
+    pointer-events: none;
+}
+
+.dui-card-glow {
+    position: absolute;
+    width: 290px;
+    height: 180px;
+    top: -90px;
+    right: -75px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(208,170,99,.15), transparent 69%);
+}
+
+.dui-card header { position: relative; display: flex; justify-content: space-between; gap: 20px; }
+.dui-label { display: block; color: var(--gold); font-size: 9px; }
+.dui-eyebrow { display: block; margin-top: 6px; color: var(--muted); font-size: 8px; }
+.dui-number { color: rgba(240,228,205,.20); font-family: Georgia, "Times New Roman", serif; font-size: 30px; }
+
+.dui-card h2 { position: relative; margin: 25px 0 10px; font-family: Georgia, "Times New Roman", serif; font-size: clamp(23px, 2vw, 34px); font-weight: 500; letter-spacing: .04em; }
+.dui-intro { position: relative; margin: 0; max-width: 95%; color: var(--muted); font-size: 12px; line-height: 1.65; }
+
+.dui-items { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 22px; }
+.dui-item { min-height: 82px; padding: 13px 14px; border: 1px solid rgba(208,170,99,.13); border-radius: 12px; background: rgba(255,255,255,.025); }
+.dui-item strong { display: block; color: var(--gold); font-size: 9px; letter-spacing: .13em; }
+.dui-item span { display: block; margin-top: 7px; color: rgba(240,228,205,.66); font-size: 10px; line-height: 1.45; }
+.dui-item.keybind { display: flex; align-items: center; gap: 12px; min-height: 54px; }
+.dui-item.keybind strong { min-width: 42px; font-family: Georgia, "Times New Roman", serif; font-size: 16px; text-align: center; }
+.dui-item.keybind span { margin: 0; }
+
+.dui-card footer { position: relative; display: flex; justify-content: space-between; align-items: center; gap: 18px; margin-top: 22px; color: rgba(240,228,205,.30); font-size: 7px; }
+.dui-progress { display: flex; flex: 1; gap: 5px; }
+.dui-progress i { width: 18px; height: 2px; background: rgba(240,228,205,.13); }
+.dui-progress i.active { background: var(--gold); }
+
+@media (max-width: 900px) {
+    .dui-brand { left: 4vw; width: 34vw; }
+    .dui-card { right: 3vw; width: 55vw; }
+    .dui-items { grid-template-columns: 1fr; }
+}
